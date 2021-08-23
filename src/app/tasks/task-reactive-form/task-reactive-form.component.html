@@ -1,0 +1,38 @@
+<div *ngIf="selectedTask">
+	<h2>Edit task</h2>
+	<form [formGroup]="taskEditForm">
+		<mat-form-field>
+			<mat-label>Task name</mat-label>
+			<input matInput formControlName="name" />
+			<mat-hint>Enter descriptive name</mat-hint>
+			<mat-error *ngIf="nameField.hasError">Task name cannot be empty</mat-error>
+		</mat-form-field>
+
+		<mat-form-field>
+			<mat-label>Descripton</mat-label>
+			<input matInput formControlName="description" />
+		</mat-form-field>
+
+		<mat-form-field appearance="fill">
+			<mat-label>Due date</mat-label>
+			<input matInput formControlName="dueDate" [matDatepicker]="picker" />
+			<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+			<mat-datepicker #picker></mat-datepicker>
+			<mat-hint>When should the task be finished?</mat-hint>
+			<mat-error *ngIf="dueDateField.errors?.dueDateInPast"
+				>Due date cannot be in the past</mat-error
+			>
+		</mat-form-field>
+
+		<mat-form-field appearance="fill">
+			<mat-label>User</mat-label>
+			<mat-select formControlName="user">
+				<mat-option *ngFor="let user of userList" [value]="user.id">
+					{{ user.firstName }} {{ user.lastName }}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</form>
+	<!-- {{ taskEditForm.value | json }} -->
+</div>
+<!-- <p>Form Status: {{ taskEditForm.valid }}</p> -->

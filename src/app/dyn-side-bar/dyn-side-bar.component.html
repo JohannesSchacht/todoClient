@@ -1,0 +1,21 @@
+<div
+	class="buttonBar mat-elevation-z2"
+	(mouseover)="mouseoverSideBar()"
+	(mouseout)="mouseoutSideBar()"
+>
+	<div class="buttonLike" (click)="hiddenState = !hiddenState">{{ buttonText }}</div>
+	<div style="height: 100%">
+		<div
+			class="sideBar mat-elevation-z8 mat-app-background"
+			[ngClass]="
+				hidden ? 'hidden' : tempVisible ? 'visibilityAbsolute' : 'visibilityRelative'
+			"
+		>
+			<ng-content select="[dyn-side-bar-bar]"></ng-content>
+		</div>
+	</div>
+</div>
+
+<div class="content">
+	<ng-content select="[dyn-side-bar-content]"></ng-content>
+</div>

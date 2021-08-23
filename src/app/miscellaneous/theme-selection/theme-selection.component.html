@@ -1,0 +1,11 @@
+<mat-form-field appearance="fill">
+	<mat-label>Select theme</mat-label>
+	<mat-select [formControl]="selectorFormControl">
+		<mat-option *ngFor="let theme of themes" [value]="theme.value">
+			<todo-theme-icon [attr.id]="theme.value">{{ theme.name }}</todo-theme-icon>
+		</mat-option>
+	</mat-select>
+</mat-form-field>
+
+<!-- <tae-theme-icon id="light-theme1">Light</tae-theme-icon>
+<tae-theme-icon id="dark-theme1">Dark</tae-theme-icon> -->

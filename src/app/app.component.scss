@@ -1,0 +1,73 @@
+:host {
+	height: 100%;
+	/* display: grid;
+	grid-template-rows: auto 1fr;
+	overflow: auto; */
+	/* background: green;
+	background: white; */
+}
+
+//@import 'src/app/miscellaneous/theme-selection/theme-selection.component-theme.scss';
+
+.outer-div {
+	height: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr;
+	overflow: auto;
+}
+
+.navbar {
+	justify-content: space-between;
+}
+
+span {
+	padding-right: 1em;
+}
+
+/* no longer needed */
+/*
+.mat-sidenav {
+	padding: 0.5em;
+	margin: 0px;
+	background: skyblue;
+}
+
+.mat-sidenav-content {
+	padding: 0px;
+	background: #eee;
+	margin: 0;
+}
+
+button.navbar {
+	margin: 0px;
+	padding: 1px 3px;
+	border: none;
+	background: none;
+	background: skyblue;
+	font-size: 50%;
+	position: relative;
+	left: -1px;
+}
+
+div.float-left {
+	float: left;
+}
+
+::ng-deep.mat-grid-tile-content {
+	background: yellowgreen;
+	align-items: flex-start !important;
+	justify-content: left !important;
+}
+
+mat-grid-tile {
+	div {
+		justify-content: left;
+		align-content: left;
+		align-items: top;
+	}
+}
+
+p {
+	color: red;
+}
+*/

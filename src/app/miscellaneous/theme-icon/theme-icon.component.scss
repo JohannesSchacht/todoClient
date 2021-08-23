@@ -1,0 +1,29 @@
+.outer-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.outer-container > div {
+	margin: 10px;
+}
+
+.flex-container {
+	display: flex;
+	width: 125px;
+	height: 40px;
+}
+.flex-container > div {
+	width: 40px;
+	height: 40px;
+}
+
+#circle {
+	margin: 5px 5px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+.name {
+	padding: 0px 10px;
+}

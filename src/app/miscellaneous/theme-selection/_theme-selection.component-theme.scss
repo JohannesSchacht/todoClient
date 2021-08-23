@@ -1,0 +1,47 @@
+@use 'sass:map';
+@use '~@angular/material' as mat;
+@use 'src/app/tasks/task-table/task-table.component-theme' as task-table;
+@use 'src/app/tasks/task-view/error-dialog.component-theme' as error-dialog;
+@use 'src/app/miscellaneous/theme-icon/theme-icon.component-theme' as theme-icon;
+@import '~@angular/material/theming';
+@include mat.core();
+
+@mixin xtheme($theme) {
+	@include mat.all-component-colors($theme);
+	//@include mat.strong-focus-indicators-theme($light-app-theme);
+	@include task-table.theme($theme);
+	@include error-dialog.theme($theme);
+	@include theme-icon.theme($theme);
+}
+
+$theme-1: mat-light-theme(
+	(
+		color: (
+			primary: mat-palette($mat-indigo),
+			accent: mat-palette($mat-pink, A200, A100, A400),
+			warn: mat-palette($mat-red)
+		)
+	)
+);
+.theme-1 {
+	@include xtheme($theme-1);
+}
+#theme-1 {
+	@extend .theme-1;
+}
+
+$theme-2: mat-dark-theme(
+	(
+		color: (
+			primary: mat-palette($mat-purple),
+			accent: mat-palette($mat-green, A200, A100, A400),
+			warn: mat-palette($mat-amber)
+		)
+	)
+);
+.theme-2 {
+	@include xtheme($theme-2);
+}
+#theme-2 {
+	@extend .theme-2;
+}

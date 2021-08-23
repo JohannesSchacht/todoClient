@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use '~@angular/material' as mat;
+
+@mixin color($theme) {
+	$color-config: mat.get-color-config($theme);
+	//$background: map-get($theme, 'background');
+
+	.todo-theme-icon-primary-color {
+		background-color: mat.get-color-from-palette(map.get($color-config, 'primary'), default);
+	}
+	.todo-theme-icon-accent-color {
+		background-color: mat.get-color-from-palette(map.get($color-config, 'accent'), default);
+	}
+	.todo-theme-icon-warn-color {
+		background-color: mat.get-color-from-palette(map.get($color-config, 'warn'), default);
+	}
+	.todo-theme-icon-background-color {
+		$bg: map-get($theme, 'background');
+		background-color: mat.get-color-from-palette($bg, background);
+	}
+	.todo-theme-icon-foreground-color {
+		$fg: map-get($theme, 'foreground');
+		color: mat.get-color-from-palette($fg, text);
+		/* $bg: map-get($theme, 'background');
+		color: mat.get-color-from-palette($bg, text); */
+		/* color: mat.get-color-from-palette(map.get($color-config, 'warn'), default); */
+	}
+}
+
+@mixin theme($theme) {
+	$color-config: mat.get-color-config($theme);
+	@if $color-config != null {
+		@include color($theme);
+	}
+}

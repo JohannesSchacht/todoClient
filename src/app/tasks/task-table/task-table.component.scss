@@ -1,0 +1,51 @@
+//@import 'src/styles.scss';
+
+/*:host {}*/
+
+table {
+	width: 100%;
+}
+
+.center {
+	text-align: center;
+}
+
+.cellError {
+	// border: 1px solid $warn-color;
+	border: 1px solid;
+	margin: 2px;
+	padding: 2px;
+}
+
+.primary-tooltip {
+	background-color: #3f51b5;
+}
+
+.mouse-over {
+	color: accent;
+}
+
+.mat-row .mat-cell {
+	/* 	border-bottom: 1px solid transparent;
+	border-top: 1px solid transparent; */
+	cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+	background-color: lightgray;
+	/* 	border-color: currentColor; */
+}
+
+.demo-row-is-selected {
+	font-weight: bold;
+}
+
+/* mat-grid-tile {
+	background-color: olive;
+	color: gold;
+}
+
+::ng-deep .mat-grid-tile-content {
+	justify-content: left !important;
+	align-items: flex-start !important;
+} */

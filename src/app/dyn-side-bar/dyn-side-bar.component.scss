@@ -1,0 +1,51 @@
+:host {
+	height: 100%;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	margin: 0;
+	overflow: auto;
+}
+
+.buttonBar {
+	//background-color: rgb(50, 50, 50);
+	/* height: 100%; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.sideBar {
+	/* background-color: rgb(211, 211, 211);
+	box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+	border-right: 1px solid rgb(180, 180, 180); */
+	// background-color: white;
+	height: 100%;
+	white-space: nowrap;
+	z-index: 1;
+	opacity: 0.9;
+}
+
+.content {
+	overflow: auto;
+}
+
+.buttonLike {
+	padding: 0px 2px;
+}
+.buttonLike:hover {
+	cursor: pointer;
+	border-radius: 25px;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* visibility of sidebar */
+.visibilityRelative {
+	position: relative;
+}
+.visibilityAbsolute {
+	position: absolute;
+}
+.hidden {
+	display: none;
+}
