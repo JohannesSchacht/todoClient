@@ -11,7 +11,7 @@ const routes: Routes = [
 	{ path: 'tasks/:id', component: TaskViewComponent },
 	{
 		path: 'users',
-		loadChildren: () => import('./users/users.module').then((m) => m.UsersModule)
+		loadChildren: () => import('./users/user-view/users.module').then((m) => m.UsersModule)
 	},
 	{ path: '**', component: PageNotFoundComponent }
 ];

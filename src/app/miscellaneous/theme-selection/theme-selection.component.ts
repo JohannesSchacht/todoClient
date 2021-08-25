@@ -3,11 +3,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { switchAll, take, takeUntil } from 'rxjs/operators';
 
 import { RootState } from 'src/app/store';
-import { setTheme } from 'src/app/store/theme/theme.actions';
+import { setTheme, initialiteTheme } from 'src/app/store/theme/theme.actions';
 import { ThemeDescriptor } from './theme-descriptor';
+import * as fromThemes from 'src/app/store/theme/theme.selectors';
 
 @Component({
 	selector: 'todo-theme-selection',
@@ -17,7 +18,6 @@ import { ThemeDescriptor } from './theme-descriptor';
 export class ThemeSelectionComponent implements OnInit, OnDestroy {
 	themes!: ThemeDescriptor[];
 	selectorFormControl!: FormControl;
-	localStorageKey = 'tae-currentTheme';
 
 	dummy = new Subject();
 
@@ -33,15 +33,11 @@ export class ThemeSelectionComponent implements OnInit, OnDestroy {
 			const newTheme = this.themes.find((entry) => entry.value === t);
 			if (newTheme) {
 				this.store.dispatch(setTheme({ theme: newTheme }));
-				localStorage.setItem(this.localStorageKey, JSON.stringify(newTheme));
 			}
 		});
-		const tmp = localStorage.getItem(this.localStorageKey);
-		setTimeout(
-			() => this.store.dispatch(setTheme({ theme: tmp ? JSON.parse(tmp) : this.themes[0] })),
-			0
-		);
+		this.store.dispatch(initialiteTheme({ defaultTheme: this.themes[0] }));
 	}
+
 	ngOnDestroy(): void {
 		this.dummy.next();
 		this.dummy.complete();

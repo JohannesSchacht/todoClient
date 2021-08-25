@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { User } from './user';
-import { UsersModule } from '../../users/users.module';
+import { UsersModule } from '../user-view/users.module';
 
 @Injectable(
 	// { providedIn: UsersModule } // does not work

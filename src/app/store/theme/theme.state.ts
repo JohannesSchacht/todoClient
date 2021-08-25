@@ -7,3 +7,5 @@ export interface ThemeState {
 export const initialState: ThemeState = {
 	selectedTheme: { name: '', value: '' }
 };
+
+export const themeKeyforlocalStorage = 'todo_CurrentTheme';

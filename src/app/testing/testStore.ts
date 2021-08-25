@@ -8,10 +8,14 @@ export class TestStore<T> extends Observable<T> {
 	}
 
 	select(selector?: any): Observable<T> {
-		const x = {} as T;
-		return new BehaviorSubject(x);
-		// return this.state.asObservable();
-		// return of();
+		/* console.log(selector);
+		console.log(typeof selector); */
+		// selector.clear();
+		/* const x1 = selector();
+		console.log(`x1: ${x1}`); */
+		// const x ={}} as T;
+		//return new BehaviorSubject([] as unknown as T);
+		return new BehaviorSubject(true as unknown as T);
 	}
 
 	dispatch(action: any): void {

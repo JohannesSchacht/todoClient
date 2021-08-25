@@ -32,6 +32,7 @@ import { PageNotFoundComponent } from './miscellaneous/page-not-found/page-not-f
 import { ThemeSelectionComponent } from './miscellaneous/theme-selection/theme-selection.component';
 import { ThemeIconComponent } from './miscellaneous/theme-icon/theme-icon.component';
 import { DynSideBarComponent } from './dyn-side-bar/dyn-side-bar.component';
+import { ThemeEffects } from './store/theme/theme.effects';
 
 @NgModule({
 	declarations: [
@@ -55,13 +56,21 @@ import { DynSideBarComponent } from './dyn-side-bar/dyn-side-bar.component';
 		ReactiveFormsModule,
 		HttpClientModule,
 		MaterialModule,
-		StoreModule.forRoot(reducers),
+		StoreModule.forRoot(reducers, {
+			runtimeChecks: {
+				strictStateImmutability: true,
+				strictActionImmutability: true,
+				strictActionSerializability: true,
+				strictActionTypeUniqueness: true,
+				strictStateSerializability: true
+			}
+		}),
 		StoreModule.forFeature(usersFeatureKey, userReducer),
-		EffectsModule.forRoot([TaskEffects, RouterEffects]),
+		EffectsModule.forRoot([TaskEffects, RouterEffects, ThemeEffects]),
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 		StoreRouterConnectingModule.forRoot({
 			routerState: RouterState.Minimal,
-			navigationActionTiming: NavigationActionTiming.PostActivation
+			navigationActionTiming: NavigationActionTiming.PreActivation
 		})
 	],
 	providers: [{ provide: LOCALE_ID, useValue: 'de-DE' }],

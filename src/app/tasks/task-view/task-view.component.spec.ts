@@ -10,18 +10,27 @@ import { TasksService } from '../services/tasks.service';
 import { TestTasksService } from 'src/app/testing/tasks.service';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { TaskReactiveFormComponent } from '../task-reactive-form/task-reactive-form.component';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { usersFeatureKey } from 'src/app/users/store/user.state';
+import { userReducer } from 'src/app/users/store/user.reducer';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-xdescribe('TaskViewComponent', () => {
+describe('TaskViewComponent', () => {
 	let component: TaskViewComponent;
 	let fixture: ComponentFixture<TaskViewComponent>;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [MaterialModule],
+			imports: [
+				MaterialModule,
+				ReactiveFormsModule,
+				BrowserAnimationsModule,
+				StoreModule.forRoot(reducers),
+				StoreModule.forFeature(usersFeatureKey, userReducer)
+			],
 			declarations: [TaskViewComponent, TaskTableComponent, TaskReactiveFormComponent],
 			providers: [
-				{ provide: Store, useClass: TestStore },
+				/* { provide: Store, useClass: TestStore }, */
 				{ provide: TasksService, useClass: TestTasksService },
 				{ provide: HttpClient, useClass: HttpClient },
 				{ provide: HttpHandler, useClass: HttpHandler },
