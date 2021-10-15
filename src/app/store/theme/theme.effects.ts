@@ -37,12 +37,10 @@ export class ThemeEffects {
 			this.action$.pipe(
 				ofType(ThemeActions.initialiteTheme),
 				withLatestFrom(of(localStorage.getItem(themeKeyforlocalStorage))),
-				switchMap(([action, lsTheme]) =>
-					defer(() => {
-						const newTheme = lsTheme ? JSON.parse(lsTheme!) : action.defaultTheme;
-						return new BehaviorSubject(ThemeActions.setTheme({ theme: newTheme }));
-					})
-				)
+				map(([action, lsTheme]) => {
+					const newTheme = lsTheme ? JSON.parse(lsTheme!) : action.defaultTheme;
+					return ThemeActions.setTheme({ theme: newTheme });
+				})
 			),
 		{ dispatch: true }
 	);

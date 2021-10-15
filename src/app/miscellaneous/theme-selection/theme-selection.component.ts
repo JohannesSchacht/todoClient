@@ -21,7 +21,7 @@ export class ThemeSelectionComponent implements OnInit, OnDestroy {
 
 	dummy = new Subject();
 
-	constructor(private store: Store<RootState>) {}
+	constructor(private store: Store<RootState>) { }
 
 	ngOnInit(): void {
 		this.themes = [
@@ -35,7 +35,7 @@ export class ThemeSelectionComponent implements OnInit, OnDestroy {
 				this.store.dispatch(setTheme({ theme: newTheme }));
 			}
 		});
-		this.store.dispatch(initialiteTheme({ defaultTheme: this.themes[0] }));
+		setTimeout(() => this.store.dispatch(initialiteTheme({ defaultTheme: this.themes[0] })), 0);
 	}
 
 	ngOnDestroy(): void {

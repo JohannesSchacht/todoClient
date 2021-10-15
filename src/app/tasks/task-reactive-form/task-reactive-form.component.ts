@@ -35,7 +35,7 @@ export class TaskReactiveFormComponent implements OnInit, OnDestroy {
 		private store: Store<RootState>,
 		private userStore: Store<UsersRootState>,
 		private fb: FormBuilder
-	) {}
+	) { }
 
 	dueDateValidator(control: AbstractControl): { [key: string]: any } | null {
 		const selectedDate = new Date(control.value);

@@ -25,7 +25,7 @@ export class TaskViewComponent implements OnInit, OnDestroy {
 		// private snackBar: MatSnackBar,
 		private store: Store<RootState>,
 		public dialog: MatDialog
-	) {}
+	) { }
 
 	ngOnInit(): void {
 		this.store.dispatch(routeActions.setCurrentTask());
@@ -69,7 +69,7 @@ export class HttpErrorDialogComponent {
 	constructor(
 		public dialogRef: MatDialogRef<HttpErrorDialogComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: ErrorDialogData
-	) {}
+	) { }
 
 	myColor = 'accent';
 

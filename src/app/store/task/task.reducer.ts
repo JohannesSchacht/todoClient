@@ -52,7 +52,7 @@ export const taskReducer = createReducer(
 	// update task
 	on(taskActions.updateTask, (state, { upd }) =>
 		produce(state, (draft) => {
-			// console.log(`update action for ${task.id}, ${task.name}`);
+			// console.log(`update action for `, upd);
 			const idx = draft.tasks.findIndex((t) => t.id === upd.id);
 			if (idx >= 0) {
 				draft.tasks[idx] = { ...draft.tasks[idx], ...upd.task };

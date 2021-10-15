@@ -60,7 +60,7 @@ import { ThemeEffects } from './store/theme/theme.effects';
 			runtimeChecks: {
 				strictStateImmutability: true,
 				strictActionImmutability: true,
-				strictActionSerializability: true,
+				strictActionSerializability: false,
 				strictActionTypeUniqueness: true,
 				strictStateSerializability: true
 			}

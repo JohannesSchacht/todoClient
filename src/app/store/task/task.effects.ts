@@ -74,7 +74,7 @@ export class TaskEffects {
 	private updateTask$ = createEffect(() =>
 		this.action$.pipe(
 			ofType(TaskActions.updateTask),
-			// tap((action) => console.log(`EFFEKT update: ${action.task.name}`)),
+			// tap((action) => console.log(`EFFEKT update: `, action)),
 			mergeMap((action) =>
 				this.tasksService.updateTask(action.upd.id, action.upd.task).pipe(
 					mergeMap(() => of(TaskActions.tasksHTTPDone())),

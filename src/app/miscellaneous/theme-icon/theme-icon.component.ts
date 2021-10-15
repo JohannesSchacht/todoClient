@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./theme-icon.component.scss']
 })
 export class ThemeIconComponent implements OnInit {
-	constructor() {}
+	constructor() { }
 
-	ngOnInit(): void {}
+	ngOnInit(): void { }
 }

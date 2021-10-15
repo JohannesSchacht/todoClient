@@ -33,7 +33,7 @@ export class TaskTableComponent implements OnInit, OnDestroy {
 		private store: Store<RootState>,
 		private userStore: Store<UsersRootState>,
 		private tasksService: TasksService
-	) {}
+	) { }
 
 	ngOnInit(): void {
 		this.tasksLoaded$ = this.store.select(fromTasks.tasksLoaded);

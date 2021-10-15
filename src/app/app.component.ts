@@ -27,7 +27,7 @@ export class AppComponent implements OnInit, OnDestroy {
 		private router: Router,
 		private store: Store<RootState>,
 		private overlayContainer: OverlayContainer
-	) {}
+	) { }
 
 	ngOnInit(): void {
 		this.counter$ = this.store.select(fromTasks.taskCount);

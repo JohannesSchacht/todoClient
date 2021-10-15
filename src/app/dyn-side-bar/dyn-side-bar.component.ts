@@ -12,7 +12,7 @@ export class DynSideBarComponent implements OnInit {
 	tempVisible = false;
 	buttonText = this._hiddenState ? '»' : '«';
 
-	constructor() {}
+	constructor() { }
 
 	set hiddenState(value: boolean) {
 		this._hiddenState = this.hidden = value;
@@ -46,5 +46,5 @@ export class DynSideBarComponent implements OnInit {
 		console.log(s);
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void { }
 }
